@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
-    apiUrl: string = 'api/auth';
+    apiUrl: string = `${environment.baseUrl}/api/auth`;
 
     constructor(private httpClient: HttpClient) {}
 

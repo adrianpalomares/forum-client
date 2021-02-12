@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '../posts/post.model';
 import { Comment } from '../comments/comment.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CommentService {
-    apiUrl: string = 'api/comments';
+    apiUrl: string = `${environment.baseUrl}/api/comments`;
 
     constructor(private httpClient: HttpClient) {}
 
