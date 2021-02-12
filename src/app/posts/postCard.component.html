@@ -1,0 +1,15 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <h3 class="card-title">
+      <a class="card-link" href="/post/{{ post.id }}">{{ post.title }}</a>
+    </h3>
+    <h6 class="card-subtitle mb-2 text-muted">This post's user is</h6>
+    <p class="card-text">This posts id is {{ post.id }}</p>
+    <span class="oi oi-thumb-up mr-2"> 999</span>
+    <span class="oi oi-thumb-down mr-2"> 999</span>
+    <span *ngIf="comments" class="oi oi-comment-square mr-2">
+      {{ comments.length }}</span
+    >
+    <span *ngIf="!comments" class="oi oi-comment-square mr-2"> ?</span>
+  </div>
+</div>

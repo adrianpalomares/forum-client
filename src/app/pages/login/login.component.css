@@ -1,0 +1,20 @@
+.btn-block {
+    width: 40%;
+}
+
+h1 {
+    text-align: center;
+}
+
+#signin-button, #register-button {
+    display:inline-block;
+    margin: 0;
+}
+
+#signin-button {
+    margin-right: 10%;
+}
+
+#register-button {
+    margin-left: 10%
+}
