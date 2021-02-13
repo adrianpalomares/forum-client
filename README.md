@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> A forum app built with Angular for the frontend and Spring Boot for the backend.
+> A forum app built with Angular for the frontend and Spring Boot for the [backend](https://github.com/adrianpalomares/forum-api).
 
 ## Install
 
