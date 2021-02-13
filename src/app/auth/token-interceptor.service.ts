@@ -32,7 +32,11 @@ export class TokenInterceptorService implements HttpInterceptor {
                       )}`,
                   },
               }
-            : {};
+            : {
+                  setHeaders: {
+                      'Access-Control-Allow-Origin': '*',
+                  },
+              };
         const request = req.clone(update);
         console.log(request);
         return next.handle(request);
