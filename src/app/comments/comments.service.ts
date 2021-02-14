@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CommentService {
-    apiUrl: string = `${environment.baseUrl}/api/comments`;
+    apiUrl: string = `${environment.baseUrl}/api/comments/`;
 
     constructor(private httpClient: HttpClient) {}
 
