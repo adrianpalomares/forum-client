@@ -1,74 +1,77 @@
 <div class="container mt-4">
   <form (ngSubmit)="(onSubmit)" [formGroup]="form" class="col-sm-4 mx-auto">
-    <h1 class="mb-4">Login</h1>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input
-          id="userNameInput"
-          #userNameInput
-          type="text"
-          matInput
-          formControlName="username"
-          required
-        />
-        <mat-hint>Required</mat-hint>
-        <mat-error>Username required</mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input
-          id="passwordInput"
-          #passwordInput
-          type="text"
-          matInput
-          formControlName="password"
-          required
-        />
-        <mat-hint>Required</mat-hint>
-        <mat-error>Password required</mat-error>
-      </mat-form-field>
-    </div>
+    <div class="center">
+      <h1 class="mb-4">Login</h1>
 
-    <!-- 2 column grid layout for inline styling -->
-    <div class="row mb-4">
-      <div class="col d-flex justify-content-center">
-        <!-- Checkbox -->
-        <div class="form-check">
+      <div >
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Username</mat-label>
           <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="form1Example3"
-            checked
+            id="userNameInput"
+            #userNameInput
+            type="text"
+            matInput
+            formControlName="username"
+            required
           />
-          <label class="form-check-label" for="form1Example3">
-            Remember me
-          </label>
+          <mat-hint>Required</mat-hint>
+          <mat-error>Username required</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Password</mat-label>
+          <input
+            id="passwordInput"
+            #passwordInput
+            type="text"
+            matInput
+            formControlName="password"
+            required
+          />
+          <mat-hint>Required</mat-hint>
+          <mat-error>Password required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <div class="col">
+          <!-- Checkbox -->
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="form1Example3"
+              checked
+            />
+            <label class="form-check-label" for="form1Example3">
+              Remember me
+            </label>
+          </div>
+        </div>
+
+        <div class="col">
+          <!-- Simple link -->
+          <a href="#!">Forgot password?</a>
         </div>
       </div>
 
-      <div class="col">
-        <!-- Simple link -->
-        <a href="#!">Forgot password?</a>
+      <!-- Submit button -->
+      <div style="text-align: center;">
+        <button
+          id="signin-button"
+          (click)="onSubmit()"
+          mat-raised-button
+          color="primary"
+        >
+          Sign in
+        </button>
+        <button id="register-button" mat-raised-button color="primary">
+          Register
+        </button>
       </div>
-    </div>
-
-    <!-- Submit button -->
-    <div>
-      <button
-        id="signin-button"
-        (click)="onSubmit()"
-        mat-raised-button
-        color="primary"
-      >
-        Sign in
-      </button>
-      <button id="register-button" mat-raised-button color="primary">
-        Register
-      </button>
     </div>
   </form>
 </div>

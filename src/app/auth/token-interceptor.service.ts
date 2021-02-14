@@ -30,6 +30,7 @@ export class TokenInterceptorService implements HttpInterceptor {
                       Authorization: `Bearer ${JSON.parse(
                           this.authService.getToken()
                       )}`,
+                      'Access-Control-Allow-Origin': '*',
                   },
               }
             : {
