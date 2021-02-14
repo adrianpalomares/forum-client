@@ -9,6 +9,9 @@ import { AuthService } from '../auth/auth.service';
 import { CommentService } from '../comments/comments.service';
 import { LogoutComponent } from './logout/logout.component';
 import { PostComponent } from './post/post.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -18,7 +21,15 @@ import { PostComponent } from './post/post.component';
         LogoutComponent,
         PostComponent,
     ],
-    imports: [CommonModule, PostsModule, ReactiveFormsModule, FormsModule],
+    imports: [
+        CommonModule,
+        PostsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        BrowserAnimationsModule
+    ],
     providers: [AuthService, CommentService],
 })
 export class PagesModule {}

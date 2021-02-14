@@ -1,9 +1,10 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppModule } from 'src/app/app.module';
 import { AuthService } from 'src/app/auth/auth.service';
-
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -18,7 +19,13 @@ describe('LoginComponent', () => {
 
         await TestBed.configureTestingModule({
             declarations: [LoginComponent],
-            imports: [HttpClientModule, ReactiveFormsModule, FormsModule],
+            imports: [
+                HttpClientModule,
+                ReactiveFormsModule,
+                FormsModule,
+                RouterModule,
+                AppModule,
+            ],
             providers: [{ provide: AuthService, useClass: AuthServiceStub }],
         }).compileComponents();
     });
@@ -37,20 +44,44 @@ describe('LoginComponent', () => {
         expect(component.form.valid).toBeFalsy();
     });
 
-    it('Should check for proper email format', () => {
+    it('Should check that username is not empty', () => {
         // Setting invalid email
         component.form.setValue({
-            email: 'improperemail.com', // not valid
+            username: '', // not valid
             password: 'password',
         });
-        let email = component.form.controls['email'];
-        expect(email.valid).toBeFalse();
+        fixture.detectChanges();
+        let username = component.form.controls['username'];
+        expect(username.valid).toBeFalse();
 
+        console.log('gets to here');
         component.form.setValue({
-            email: 'email@email.com',
+            username: 'username123',
             password: 'password',
         });
-        expect(email.valid).toBeTrue();
+        username = component.form.controls['username'];
+        // console.log(email);
+        fixture.detectChanges();
+        expect(username.valid).toBeTrue();
+    });
+    it('Should have a password field', () => {
+        const passwordElem = fixture.debugElement.query(
+            By.css('input#passwordInput')
+        );
+        expect(passwordElem.nativeElement).not.toBeNull();
+    });
+    it('should call onSubmit() when sign in button is pressed', () => {
+        spyOn(component, 'onSubmit');
+        const signinBtn = fixture.debugElement.query(
+            By.css('button#signin-button')
+        );
+        signinBtn.nativeElement.click();
+        fixture.detectChanges();
+        expect(component.onSubmit).toHaveBeenCalled();
+    });
+    it('should be invalid if empty password', () => {
+        console.log(component.form.controls['password'].valid);
+        expect(component.form.controls['password'].valid).toBeFalse();
     });
 
     // it('Should set token to local storage', () => {

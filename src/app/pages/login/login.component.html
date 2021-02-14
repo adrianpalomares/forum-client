@@ -1,16 +1,35 @@
 <div class="container mt-4">
-  <form (ngSubmit)="onSubmit" [formGroup]="form" class="col-sm-4 mx-auto">
+  <form (ngSubmit)="(onSubmit)" [formGroup]="form" class="col-sm-4 mx-auto">
     <h1 class="mb-4">Login</h1>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input formControlName="email" type="email" id="form1Example1" class="form-control" />
-      <label class="form-label" for="form1Example1">Email address</label>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input
+          id="userNameInput"
+          #userNameInput
+          type="text"
+          matInput
+          formControlName="username"
+          required
+        />
+        <mat-hint>Required</mat-hint>
+        <mat-error>Username required</mat-error>
+      </mat-form-field>
     </div>
-
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input formControlName="password" type="password" id="form1Example2" class="form-control" />
-      <label class="form-label" for="form1Example2">Password</label>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          id="passwordInput"
+          #passwordInput
+          type="text"
+          matInput
+          formControlName="password"
+          required
+        />
+        <mat-hint>Required</mat-hint>
+        <mat-error>Password required</mat-error>
+      </mat-form-field>
     </div>
 
     <!-- 2 column grid layout for inline styling -->
@@ -42,16 +61,12 @@
       <button
         id="signin-button"
         (click)="onSubmit()"
-        type="submit"
-        class="btn btn-primary btn-block"
+        mat-raised-button
+        color="primary"
       >
         Sign in
       </button>
-      <button
-        id="register-button"
-        type="submit"
-        class="btn btn-primary btn-block"
-      >
+      <button id="register-button" mat-raised-button color="primary">
         Register
       </button>
     </div>

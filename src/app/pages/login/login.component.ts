@@ -19,25 +19,17 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            email: [
-                '',
-                [
-                    Validators.required,
-                    Validators.pattern(
-                        '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'
-                    ),
-                ],
-            ],
+            username: ['', [Validators.required]],
             password: ['', Validators.required],
         });
     }
 
     onSubmit(): void {
-        const email = this.form.get('email').value;
+        const username = this.form.get('username').value;
         const password = this.form.get('password').value;
         // Log in with authService
         // If success set token to localstorage
-        this.authService.login(email, password).subscribe(
+        this.authService.login(username, password).subscribe(
             (response) => {
                 console.log(response);
                 localStorage.setItem('token', JSON.stringify(response.token));
