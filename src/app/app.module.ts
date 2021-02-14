@@ -14,9 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NavComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -26,6 +30,12 @@ import { MatListModule } from '@angular/material/list';
         BrowserAnimationsModule,
         MatInputModule,
         BrowserAnimationsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
         // MatToolbarModule,
         // MatButtonModule,
         // MatSidenavModule,
