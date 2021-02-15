@@ -9,15 +9,19 @@ export class AuthService {
     constructor(private httpClient: HttpClient) {}
 
     login(username: String, password: String) {
-        return this.httpClient.post<any>(`${this.apiUrl}/login`, {
-            username: username,
-            password: password,
-        });
+        return this.httpClient.post<any>(
+            `${this.apiUrl}/login/`,
+            {
+                username: username,
+                password: password,
+            },
+            { observe: 'body' }
+        );
     }
 
     isLoggedIn() {
         const token = localStorage.getItem('token');
-        console.log("from isLoggedIn",token != null)
+        console.log('from isLoggedIn', token != null);
         return token != null;
     }
 
