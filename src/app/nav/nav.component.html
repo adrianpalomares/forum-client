@@ -25,6 +25,13 @@
       </button>
       <span>Forum</span>
     </mat-toolbar>
+    <mat-toolbar style="height: 40px">
+      <div class="container">
+        <a class="secondary-toolbar-link" [routerLink]="['create-post']"
+          >Create Post</a
+        >
+      </div>
+    </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
