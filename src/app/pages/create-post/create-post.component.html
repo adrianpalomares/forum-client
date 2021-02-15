@@ -1,1 +1,22 @@
-<p>create-post works!</p>
+<div class="container">
+  <h2 class="mat-display-2" style="text-align: center;">Create a Post</h2>
+  <hr />
+  <div class="text-box">
+    <mat-form-field appearance="fill">
+      <input matInput type="text" id="title-input" placeholder="Title" />
+    </mat-form-field>
+  </div>
+  <div class="text-box">
+    <mat-form-field appearance="fill">
+      <textarea
+        matInput
+        type="text"
+        id="text-input"
+        placeholder="Text (Optional)"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div class="text-box">
+    <button color="primary" mat-raised-button id="post-button">Post</button>
+  </div>
+</div>
