@@ -12,6 +12,7 @@ import { PostComponent } from './post/post.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         RegisterComponent,
         LogoutComponent,
         PostComponent,
+        CreatePostComponent,
     ],
     imports: [
         CommonModule,
