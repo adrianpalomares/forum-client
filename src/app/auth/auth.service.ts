@@ -39,7 +39,7 @@ export class AuthService {
                 password: password,
                 email: email,
             },
-            { observe: 'response' }
+            { observe: 'body' }
         );
     }
 
