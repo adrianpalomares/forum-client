@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppModule } from 'src/app/app.module';
+import { PostService } from 'src/app/posts/posts.service';
 import { CreatePostComponent } from './create-post.component';
 
 fdescribe('CreatePostComponent', () => {
@@ -11,6 +12,7 @@ fdescribe('CreatePostComponent', () => {
         await TestBed.configureTestingModule({
             declarations: [CreatePostComponent],
             imports: [AppModule],
+            providers: [PostService],
         }).compileComponents();
     });
 
@@ -74,5 +76,14 @@ fdescribe('CreatePostComponent', () => {
         expect(component.form.value.text).toEqual(
             'This is the text of my first post.'
         );
+    });
+    it('should render the spinner when isLoading', () => {
+        // set is loading to true
+        component.isLoading = true;
+        fixture.detectChanges();
+
+        // grab spinner
+        const spinner = fixture.debugElement.query(By.css('.mat-spinner'));
+        expect(spinner.nativeElement).toBeDefined();
     });
 });

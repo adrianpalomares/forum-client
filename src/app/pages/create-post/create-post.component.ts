@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { PostService } from 'src/app/posts/posts.service';
 import { Post } from '../../posts/post.model';
@@ -12,9 +13,11 @@ import { Post } from '../../posts/post.model';
 export class CreatePostComponent implements OnInit {
     // Responsible for holding text and title input values
     form: FormGroup;
+    isLoading: boolean;
     constructor(
         private postService: PostService,
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -22,9 +25,11 @@ export class CreatePostComponent implements OnInit {
             title: new FormControl(''),
             text: new FormControl(''),
         });
+        this.isLoading = false;
     }
 
     handlePostClick() {
+        this.isLoading = true;
         const post: Post = {
             title: this.form.value.title,
             text: this.form.value.text,
@@ -34,6 +39,8 @@ export class CreatePostComponent implements OnInit {
         // Send to api
         this.postService.createPost(post).subscribe((res) => {
             console.log(res);
+            // Redirect to home page
+            this.router.navigate(['']);
         });
     }
 }

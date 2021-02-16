@@ -1,34 +1,41 @@
 <h2 class="mat-display-2" style="text-align: center">Create a Post</h2>
 <hr />
-<div class="text-box" [formGroup]="form">
-  <mat-form-field appearance="fill">
-    <input
-      matInput
-      type="text"
-      id="title-input"
-      placeholder="Title"
-      formControlName="title"
-    />
-  </mat-form-field>
-</div>
-<div class="text-box" [formGroup]="form">
-  <mat-form-field appearance="fill">
-    <textarea
-      matInput
-      type="text"
-      id="text-input"
-      placeholder="Text (Optional)"
-      formControlName="text"
-    ></textarea>
-  </mat-form-field>
-</div>
-<div class="text-box">
-  <button
-    color="primary"
-    mat-raised-button
-    id="post-button"
-    (click)="handlePostClick()"
-  >
-    Post
-  </button>
-</div>
+<ng-container *ngIf="!isLoading">
+  <div class="text-box" [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="text"
+        id="title-input"
+        placeholder="Title"
+        formControlName="title"
+      />
+    </mat-form-field>
+  </div>
+  <div class="text-box" [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <textarea
+        matInput
+        type="text"
+        id="text-input"
+        placeholder="Text (Optional)"
+        formControlName="text"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div class="text-box">
+    <button
+      color="primary"
+      mat-raised-button
+      id="post-button"
+      (click)="handlePostClick()"
+    >
+      Post
+    </button>
+  </div>
+</ng-container>
+
+<!-- Spinner -->
+<ng-template [ngIf]="isLoading"
+  ><mat-spinner style="text-align: center"></mat-spinner
+></ng-template>
