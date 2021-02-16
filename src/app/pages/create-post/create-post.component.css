@@ -14,3 +14,9 @@ mat-form-field {
 .mat-display-2 {
     margin: 0 0 32px;
 }
+
+.mat-spinner {
+    /* position: relative; */
+    margin-left: 45%;
+    margin-right: 45%;
+}
