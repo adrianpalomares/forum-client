@@ -16,4 +16,8 @@ export class PostService {
     public getPostById(id: string) {
         return this.httpClient.get<Post>(`${this.apiUrl}/${id}`);
     }
+
+    public createPost(post: Post) {
+        return this.httpClient.post(`${this.apiUrl}/`, post);
+    }
 }
