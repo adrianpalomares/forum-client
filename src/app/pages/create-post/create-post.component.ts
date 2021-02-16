@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/auth/auth.service';
+import { PostService } from 'src/app/posts/posts.service';
+import { Post } from '../../posts/post.model';
 
 @Component({
     selector: 'app-create-post',
@@ -9,7 +12,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class CreatePostComponent implements OnInit {
     // Responsible for holding text and title input values
     form: FormGroup;
-    constructor() {}
+    constructor(
+        private postService: PostService,
+        private authService: AuthService
+    ) {}
 
     ngOnInit(): void {
         this.form = new FormGroup({
@@ -18,5 +24,16 @@ export class CreatePostComponent implements OnInit {
         });
     }
 
-    handlePostClick() {}
+    handlePostClick() {
+        const post: Post = {
+            title: this.form.value.title,
+            text: this.form.value.text,
+            userId: this.authService.getUserId(),
+        };
+
+        // Send to api
+        this.postService.createPost(post).subscribe((res) => {
+            console.log(res);
+        });
+    }
 }
