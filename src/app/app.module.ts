@@ -18,6 +18,7 @@ import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
     declarations: [AppComponent, NavComponent],
@@ -36,6 +37,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         MatSidenavModule,
         MatIconModule,
         MatListModule,
+        JwtModule,
         // MatToolbarModule,
         // MatButtonModule,
         // MatSidenavModule,
