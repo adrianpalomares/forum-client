@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<!-- <div class="card mb-4">
   <div class="card-body">
     <h3 class="card-title">
       <a class="card-link" href="/post/{{ post.id }}">{{ post.title }}</a>
@@ -12,4 +12,26 @@
     >
     <span *ngIf="!comments" class="oi oi-comment-square mr-2"> ?</span>
   </div>
-</div>
+</div> -->
+
+<mat-card style="margin-bottom: 10px">
+  <mat-card-header>
+    <img mat-card-avatar src="https://via.placeholder.com/150" />
+    <mat-card-title
+      ><a routerLink="/post/{{ post.id }}">{{
+        post.title
+      }}</a></mat-card-title
+    >
+    <mat-card-subtitle *ngIf="post.user; else usernameNotFound">{{
+      post.user.username
+    }}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!post.user">User not included</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore debitis
+      deleniti nemo corporis ad, nam, atque odio sapiente hic, possimus nesciunt
+      magnam. Aliquid deserunt, sequi at voluptatum sapiente soluta illo!
+    </p>
+  </mat-card-content>
+</mat-card>
