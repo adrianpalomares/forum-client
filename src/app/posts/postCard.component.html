@@ -22,7 +22,7 @@
         post.title
       }}</a></mat-card-title
     >
-    <mat-card-subtitle *ngIf="post.user; else usernameNotFound">{{
+    <mat-card-subtitle *ngIf="post.user">{{
       post.user.username
     }}</mat-card-subtitle>
     <mat-card-subtitle *ngIf="!post.user">User not included</mat-card-subtitle>
