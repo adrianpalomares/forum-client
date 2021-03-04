@@ -12,7 +12,6 @@ export class PostCardComponent implements OnInit {
     comments: Comment[];
     constructor(private commentService: CommentService) {}
     ngOnInit(): void {
-        console.log(this.post)
         this.commentService
             .getCommentsByPost(this.post)
             .subscribe((res) => (this.comments = res));
