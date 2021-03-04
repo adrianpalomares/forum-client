@@ -1,0 +1,11 @@
+.post-button-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#post-button {
+    margin-top: 1%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
