@@ -3,7 +3,7 @@
     <div class="center">
       <h1 class="mb-4">Login</h1>
 
-      <div >
+      <div>
         <mat-form-field appearance="fill" style="width: 100%">
           <mat-label>Username</mat-label>
           <input
@@ -59,7 +59,7 @@
       </div>
 
       <!-- Submit button -->
-      <div style="text-align: center;">
+      <div style="text-align: center">
         <button
           id="signin-button"
           (click)="onSubmit()"
@@ -68,7 +68,13 @@
         >
           Sign in
         </button>
-        <button id="register-button" mat-raised-button color="primary">
+        <button
+          id="register-button"
+          type="button"
+          mat-raised-button
+          color="primary"
+          routerLink="/register"
+        >
           Register
         </button>
       </div>
