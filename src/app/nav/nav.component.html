@@ -26,21 +26,20 @@
       </button>
       <span>Forum</span>
       <span class="spacer"></span>
+      <!-- Will show when not in mobile mode -->
       <ng-template [ngIf]="!(isHandset$ | async)">
-        <a mat-button>Create Post</a>
-        <a mat-button>Profile</a>
-        <a mat-button>Login</a>
-        <a mat-button>Register</a>
+        <ng-template [ngIf]="(isUserLoggedIn | async)">
+          <a mat-button>Create Post</a>
+          <a mat-button>Profile</a>
+          <a mat-button>Login</a>
+          <a mat-button>Register</a>
+        </ng-template>
+        <ng-template [ngIf]="!(isUserLoggedIn | async)">
+          <a mat-button routerLink="/login">Login</a>
+          <a mat-button>Register</a>
+        </ng-template>
       </ng-template>
     </mat-toolbar>
-    <!-- <mat-toolbar style="height: 40px">
-      <div class="container">
-        <a class="secondary-toolbar-link" [routerLink]="['create-post']"
-          >Create Post</a
-        >
-      </div>
-    </mat-toolbar> -->
-    <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

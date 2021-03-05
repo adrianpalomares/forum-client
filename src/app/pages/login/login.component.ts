@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
                     JSON.stringify(response.username)
                 );
                 localStorage.setItem('userId', JSON.stringify(response.userId));
+                this.authService.logEmitChange(true); // letting the rest of the app know user is logged in
                 this.router.navigate(['/']);
             },
             // If error
