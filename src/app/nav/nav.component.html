@@ -20,18 +20,26 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Forum</span>
+      <span class="spacer"></span>
+      <ng-template [ngIf]="!(isHandset$ | async)">
+        <a mat-button>Create Post</a>
+        <a mat-button>Profile</a>
+        <a mat-button>Login</a>
+        <a mat-button>Register</a>
+      </ng-template>
     </mat-toolbar>
-    <mat-toolbar style="height: 40px">
+    <!-- <mat-toolbar style="height: 40px">
       <div class="container">
         <a class="secondary-toolbar-link" [routerLink]="['create-post']"
           >Create Post</a
         >
       </div>
-    </mat-toolbar>
+    </mat-toolbar> -->
     <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>

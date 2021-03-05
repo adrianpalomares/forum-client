@@ -24,3 +24,13 @@
 .secondary-toolbar-link:hover {
     color: #3f51b5;
 }
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    text-decoration: none;
+    /* font-size: 110%; */
+    white-space: normal;
+}
