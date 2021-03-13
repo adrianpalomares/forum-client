@@ -4,7 +4,7 @@ import { AppModule } from 'src/app/app.module';
 import { PostService } from 'src/app/posts/posts.service';
 import { CreatePostComponent } from './create-post.component';
 
-fdescribe('CreatePostComponent', () => {
+describe('CreatePostComponent', () => {
     let component: CreatePostComponent;
     let fixture: ComponentFixture<CreatePostComponent>;
 

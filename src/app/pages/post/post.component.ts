@@ -57,9 +57,30 @@ export class PostComponent implements OnInit {
                     this.commentArea = '';
                 },
                 (error) => {
-                    console.log('erorr', error);
+                    throw new Error(error);
                 }
             );
         }
+    }
+
+    // TODO: Validation for empty comment area
+    onPostButtonClick(): void {
+        // Create comment
+        const comment: Comment = {
+            userId: JSON.parse(this.authService.getUserId()), // Can probably get this from the jwt
+            postId: this.post.id,
+            content: this.commentArea,
+        };
+
+        // Make api request
+        this.commentService.createComment(comment).subscribe(
+            (response) => {
+                this.comments.push(response);
+                this.commentArea = '';
+            },
+            (error) => {
+                throw new Error(error);
+            }
+        );
     }
 }
