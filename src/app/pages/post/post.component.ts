@@ -26,7 +26,6 @@ export class PostComponent implements OnInit {
     ngOnInit(): void {
         // Comment area should be empty by default
         this.commentArea = '';
-        console.log(this.route.snapshot.params);
         // Grab the post
         this.postService
             .getPostById(this.route.snapshot.params.id)
