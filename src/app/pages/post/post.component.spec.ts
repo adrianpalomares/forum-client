@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppModule } from 'src/app/app.module';
 import { AuthService } from 'src/app/auth/auth.service';
 import { PostService } from 'src/app/posts/posts.service';
 import { PostComponent } from './post.component';
 
-
-describe('PostComponent', () => {
+fdescribe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
 
@@ -25,5 +25,15 @@ describe('PostComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+    // TODO: Fails because user is not logged in so comment area won't show
+    it('Should call postComment when post button is pressed.', () => {
+        const postBtn = fixture.debugElement.query(By.css('#post-button'));
+        // Spy
+        spyOn(component, 'postComment');
+        // Simulate click
+        postBtn.nativeElement.click();
+        // Test
+        expect(component.postComment).toHaveBeenCalled();
     });
 });

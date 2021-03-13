@@ -12,19 +12,35 @@
     </p>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" *ngIf="authService.loggedIn | async">
     <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
     <textarea
       [(ngModel)]="commentArea"
-      (keydown)="onCommentSubmit($event)"
+      (keydown)="onCommentKeydown($event)"
       class="form-control mt-3"
       id="commentArea"
-      placeholder="Enter comment, Ctrl-Enter to submit. (Must be logged in)"
+      placeholder="Enter comment (Must be logged in)"
       rows="2"
     ></textarea>
     <div class="post-button-area">
-      <button id="post-button" mat-raised-button color="primary">Post</button>
+      <button
+        id="post-button"
+        mat-raised-button
+        color="accent"
+        (click)="postComment()"
+      >
+        Post
+      </button>
     </div>
+  </div>
+
+  <!-- Message if use is not logged in since they cannot post comments -->
+  <div
+    *ngIf="!(authService.loggedIn | async)"
+    class="alert alert-secondary"
+    style="margin-top: 20px"
+  >
+    Login to comment
   </div>
 
   <div class="mb-3">

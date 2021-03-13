@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Comment } from 'src/app/comments/comment.model';
 import { CommentService } from 'src/app/comments/comments.service';
 import { Post } from 'src/app/posts/post.model';
-import { Comment } from 'src/app/comments/comment.model';
 import { PostService } from 'src/app/posts/posts.service';
-import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
     selector: 'app-post',
@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class PostComponent implements OnInit {
     post: Post;
     comments: Comment[];
-    commentArea: string = '';
+    commentArea: string;
 
     constructor(
         private route: ActivatedRoute,
@@ -24,44 +24,55 @@ export class PostComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        console.log(this.route.snapshot.params);
+        // Comment area should be empty by default
+        this.commentArea = '';
         // Grab the post
         this.postService
             .getPostById(this.route.snapshot.params.id)
-            .subscribe((res) => {
-                console.log(res);
-                this.post = res;
+            .subscribe((response) => {
+                this.post = response;
                 // Then grab the comments
                 this.commentService.getCommentsByPost(this.post).subscribe(
                     (comments) => {
                         this.comments = comments;
-                        console.log(this.comments.length);
                     },
                     (err) => console.log(err)
                 );
             });
     }
 
-    onCommentSubmit(e): void {
-        if (e.ctrlKey && e.keyCode === 13) {
-            console.log('match');
-            // Send comment request to api
-            const comment: Comment = {
-                // TODO: Need to make this a comment type
-                // TODO: userid is hardcoded
-                userId: JSON.parse(this.authService.getUserId()), // Can probably get this from the jwt
-                postId: this.post.id,
-                content: this.commentArea,
-            };
-            this.commentService.createComment(comment).subscribe(
-                (res) => {
-                    this.comments.push(res);
-                    this.commentArea = '';
-                },
-                (err) => {
-                    console.log('erorr', err);
-                }
-            );
+    // Function to post comment
+    postComment(): void {
+        // Checking if comment area is empty
+        if (this.commentArea === '') {
+            alert('Empty comments not allowed.');
+            return;
+        }
+
+        // Create comment
+        const comment: Comment = {
+            userId: JSON.parse(this.authService.getUserId()),
+            postId: this.post.id,
+            content: this.commentArea,
+        };
+
+        // Make api request
+        this.commentService.createComment(comment).subscribe(
+            (response) => {
+                this.comments.push(response);
+                this.commentArea = '';
+            },
+            (error) => {
+                throw new Error(error);
+            }
+        );
+    }
+
+    // Gets executed when user inputs into comment area
+    onCommentKeydown(keyboardEvent: KeyboardEvent): void {
+        // Adding Ctrl + Enter support
+        if (keyboardEvent.ctrlKey && keyboardEvent.code === 'Enter') {
+            this.postComment();
         }
     }
 }
