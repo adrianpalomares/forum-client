@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CreatePostComponent } from './pages/create-post/create-post.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { LogoutComponent } from './pages/logout/logout.component';
-import { PostComponent } from './pages/post/post.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { RouterModule, Routes } from '@angular/router';
+import {
+    CreatePostComponent,
+    HomeComponent,
+    LoginComponent,
+    LogoutComponent,
+    NotFoundPageComponent,
+    PostComponent,
+    RegisterComponent,
+} from './pages';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,6 +17,7 @@ const routes: Routes = [
     { path: 'logoutroute', component: LogoutComponent },
     { path: 'post/:id', component: PostComponent },
     { path: 'create-post', component: CreatePostComponent },
+    { path: '404', component: NotFoundPageComponent },
 ];
 
 @NgModule({

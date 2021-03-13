@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
         LogoutComponent,
         PostComponent,
         CreatePostComponent,
+        NotFoundPageComponent,
     ],
     imports: [
         CommonModule,
