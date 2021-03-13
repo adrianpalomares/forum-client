@@ -16,7 +16,7 @@
     <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
     <textarea
       [(ngModel)]="commentArea"
-      (keydown)="onCommentSubmit($event)"
+      (keydown)="onCommentKeydown($event)"
       class="form-control mt-3"
       id="commentArea"
       placeholder="Enter comment (Must be logged in)"
@@ -27,7 +27,7 @@
         id="post-button"
         mat-raised-button
         color="accent"
-        (click)="onPostButtonClick()"
+        (click)="postComment()"
       >
         Post
       </button>

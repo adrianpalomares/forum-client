@@ -26,13 +26,14 @@ fdescribe('PostComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-    it('Should call onPostButtonClick when post button is pressed.', () => {
+    // TODO: Fails because user is not logged in so comment area won't show
+    it('Should call postComment when post button is pressed.', () => {
         const postBtn = fixture.debugElement.query(By.css('#post-button'));
         // Spy
-        spyOn(component, 'onPostButtonClick');
+        spyOn(component, 'postComment');
         // Simulate click
         postBtn.nativeElement.click();
         // Test
-        expect(component.onPostButtonClick).toHaveBeenCalled();
+        expect(component.postComment).toHaveBeenCalled();
     });
 });

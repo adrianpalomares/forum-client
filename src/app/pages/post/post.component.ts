@@ -41,33 +41,17 @@ export class PostComponent implements OnInit {
             });
     }
 
-    onCommentSubmit(keyboardEvent: KeyboardEvent): void {
-        console.log(keyboardEvent);
-        // Adding Ctrl + Enter support
-        if (keyboardEvent.ctrlKey && keyboardEvent.code === 'Enter') {
-            // Send comment request to api
-            const comment: Comment = {
-                userId: JSON.parse(this.authService.getUserId()), // Can probably get this from the jwt
-                postId: this.post.id,
-                content: this.commentArea,
-            };
-            this.commentService.createComment(comment).subscribe(
-                (response) => {
-                    this.comments.push(response);
-                    this.commentArea = '';
-                },
-                (error) => {
-                    throw new Error(error);
-                }
-            );
+    // Function to post comment
+    postComment(): void {
+        // Checking if comment area is empty
+        if (this.commentArea === '') {
+            alert('Empty comments not allowed.');
+            return;
         }
-    }
 
-    // TODO: Validation for empty comment area
-    onPostButtonClick(): void {
         // Create comment
         const comment: Comment = {
-            userId: JSON.parse(this.authService.getUserId()), // Can probably get this from the jwt
+            userId: JSON.parse(this.authService.getUserId()),
             postId: this.post.id,
             content: this.commentArea,
         };
@@ -82,5 +66,13 @@ export class PostComponent implements OnInit {
                 throw new Error(error);
             }
         );
+    }
+
+    // Gets executed when user inputs into comment area
+    onCommentKeydown(keyboardEvent: KeyboardEvent): void {
+        // Adding Ctrl + Enter support
+        if (keyboardEvent.ctrlKey && keyboardEvent.code === 'Enter') {
+            this.postComment();
+        }
     }
 }
