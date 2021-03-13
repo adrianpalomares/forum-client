@@ -1,12 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
     apiUrl: string = `${environment.baseUrl}/api/auth`;
+    // Some logic is used in login component
+    loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
+    public logEmitter = this.loggedIn.asObservable();
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) {
+        // this.loggedIn = this.isLoggedIn();
+    }
+    // TODO: Document this
+    // this function is used to emit the change that user is logged in or not
+    logEmitChange(isLoggedIn: boolean){
+        this.loggedIn.next(isLoggedIn);
+    }
 
     login(username: String, password: String) {
         return this.httpClient.post<any>(
@@ -21,7 +32,6 @@ export class AuthService {
 
     isLoggedIn() {
         const token = localStorage.getItem('token');
-        console.log('from isLoggedIn', token != null);
         return token != null;
     }
 

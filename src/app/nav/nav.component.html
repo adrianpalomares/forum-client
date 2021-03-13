@@ -2,15 +2,21 @@
   <mat-sidenav
     #drawer
     class="sidenav"
-    fixedInViewport="false"
+    fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
   >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="">Home</a>
-      <a mat-list-item routerLink="login">Login</a>
-      <a mat-list-item routerLink="register">Register</a>
+      <ng-template [ngIf]="isUserLoggedIn | async">
+        <a mat-list-item routerLink="create-post">Create Post</a>
+        <a mat-list-item routerLink="">Profile</a>
+        <a mat-list-item routerLink="logoutroute">Log out</a>
+      </ng-template>
+      <ng-template [ngIf]="!(isUserLoggedIn | async)">
+        <a mat-list-item routerLink="login">Login</a>
+        <a mat-list-item routerLink="register">Register</a>
+      </ng-template>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,19 +26,27 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Forum</span>
+      <span><a routerLink="" class="brand-logo-link">Forum</a></span>
+      <span class="spacer"></span>
+      <!-- Will show when not in mobile mode -->
+      <ng-template [ngIf]="!(isHandset$ | async)">
+        <!-- When user is logged in -->
+        <ng-template [ngIf]="isUserLoggedIn | async">
+          <a mat-button routerLink="create-post">Create Post</a>
+          <a mat-button>Profile</a>
+          <a mat-button routerLink="logoutroute">Log out</a>
+        </ng-template>
+        <!-- When user is logged out -->
+        <ng-template [ngIf]="!(isUserLoggedIn | async)">
+          <a mat-button routerLink="login">Login</a>
+          <a mat-button routerLink="register">Register</a>
+        </ng-template>
+      </ng-template>
     </mat-toolbar>
-    <mat-toolbar style="height: 40px">
-      <div class="container">
-        <a class="secondary-toolbar-link" [routerLink]="['create-post']"
-          >Create Post</a
-        >
-      </div>
-    </mat-toolbar>
-    <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
