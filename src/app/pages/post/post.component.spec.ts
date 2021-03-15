@@ -28,6 +28,10 @@ fdescribe('PostComponent', () => {
     });
     // TODO: Fails because user is not logged in so comment area won't show
     it('Should call postComment when post button is pressed.', () => {
+        // Setting logged in status, post button won't show otherwise
+        component.isLoggedIn.next(true);
+        fixture.detectChanges();
+
         const postBtn = fixture.debugElement.query(By.css('#post-button'));
         // Spy
         spyOn(component, 'postComment');
