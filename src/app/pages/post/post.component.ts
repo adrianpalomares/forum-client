@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Comment } from 'src/app/comments/comment.model';
 import { CommentService } from 'src/app/comments/comments.service';
@@ -15,7 +16,7 @@ export class PostComponent implements OnInit {
     post: Post;
     comments: Comment[];
     commentArea: string;
-    isLoggedIn: any;
+    isLoggedIn: BehaviorSubject<boolean>;
 
     constructor(
         private route: ActivatedRoute,
@@ -28,7 +29,7 @@ export class PostComponent implements OnInit {
         // Comment area should be empty by default
         this.commentArea = '';
         // Grab authenticatino state from AuthService
-        this.isLoggedIn = this.authService.isLoggedIn;
+        this.isLoggedIn = this.authService.loggedIn;
         // Grab the post
         this.postService
             .getPostById(this.route.snapshot.params.id)
