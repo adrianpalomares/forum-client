@@ -15,6 +15,7 @@ export class PostComponent implements OnInit {
     post: Post;
     comments: Comment[];
     commentArea: string;
+    isLoggedIn: any;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,6 +27,8 @@ export class PostComponent implements OnInit {
     ngOnInit(): void {
         // Comment area should be empty by default
         this.commentArea = '';
+        // Grab authenticatino state from AuthService
+        this.isLoggedIn = this.authService.isLoggedIn;
         // Grab the post
         this.postService
             .getPostById(this.route.snapshot.params.id)

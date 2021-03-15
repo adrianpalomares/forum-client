@@ -21,7 +21,9 @@ export class AppComponent implements OnInit {
         if (this.helper.isTokenExpired(rawToken)) {
             this.authService.logout();
         }
-
+        // TODO: Might need to throw an emitter/event?
+        // Scenario: when user starts app for first time after being logged in
+        // if token invalid it erases but navbar does not update
         this.router.events.subscribe((event) => {
             if (event.constructor.name == 'NavigationEnd') {
                 this.loggedIn = this.authService.isLoggedIn();
