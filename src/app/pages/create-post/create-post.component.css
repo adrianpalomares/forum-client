@@ -20,3 +20,9 @@ mat-form-field {
     margin-left: 45%;
     margin-right: 45%;
 }
+
+@media screen and (max-width: 992px) {
+    mat-form-field {
+        width: 90%;
+    }
+}
