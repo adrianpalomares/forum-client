@@ -36,14 +36,14 @@
       <ng-template [ngIf]="!(isHandset$ | async)">
         <!-- When user is logged in -->
         <ng-template [ngIf]="isUserLoggedIn | async">
-          <a mat-button routerLink="create-post">Create Post</a>
-          <a mat-button routerLink="404">Profile</a>
-          <a mat-button routerLink="logoutroute">Log out</a>
+          <a mat-raised-button routerLink="create-post">Create Post</a>
+          <a mat-raised-button routerLink="404">Profile</a>
+          <a mat-raised-button color="warn" routerLink="logoutroute">Log out</a>
         </ng-template>
         <!-- When user is logged out -->
         <ng-template [ngIf]="!(isUserLoggedIn | async)">
-          <a mat-button routerLink="login">Login</a>
-          <a mat-button routerLink="register">Register</a>
+          <a mat-raised-button routerLink="login">Login</a>
+          <a mat-raised-button routerLink="register">Register</a>
         </ng-template>
       </ng-template>
     </mat-toolbar>
