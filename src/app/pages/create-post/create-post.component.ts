@@ -28,7 +28,12 @@ export class CreatePostComponent implements OnInit {
         this.isLoading = false;
     }
 
-    handlePostClick() {
+    handlePostClick(): void {
+        // Check if user is logged in
+        if (!this.authService.isLoggedIn()) {
+            alert('You need to be logged in to post.');
+            return;
+        }
         this.isLoading = true;
         const post: Post = {
             title: this.form.value.title,
