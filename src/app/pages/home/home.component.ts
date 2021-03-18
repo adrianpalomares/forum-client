@@ -14,6 +14,5 @@ export class HomeComponent implements OnInit {
         // if (localStorage.getItem('token') != null) { // temp change because of tests
         this.postService.getPosts().subscribe((res) => (this.posts = res));
         // }
-        console.log(this.posts);
     }
 }
