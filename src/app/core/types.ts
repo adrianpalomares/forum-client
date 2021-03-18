@@ -5,6 +5,12 @@ export interface Post {
     userId?: string;
     user?: object;
 }
+export interface Comment {
+    id?: number;
+    userId?: number;
+    postId: number;
+    content: string;
+}
 
 export interface Like {
     id: number;

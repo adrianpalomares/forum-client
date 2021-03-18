@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Post } from '../core/types';
-import { Comment } from '../comments/comment.model';
+import { Post, Comment } from '../core/types';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
