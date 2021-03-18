@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Post } from './post.model';
-import { Like } from '../core/types';
+import { Like, Post } from '../core/types';
 @Injectable()
 export class PostService {
     // Url

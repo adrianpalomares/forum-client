@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentService } from '../comments/comments.service';
-import { Post } from './post.model';
 import { Comment } from '../comments/comment.model';
-import { Like } from '../core/types';
+import { Like, Post } from '../core/types';
 import { PostService } from './posts.service';
 
 @Component({

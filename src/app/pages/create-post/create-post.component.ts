@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { PostService } from 'src/app/posts/posts.service';
-import { Post } from '../../posts/post.model';
+import { Post } from '../../core/types';
 
 @Component({
     selector: 'app-create-post',

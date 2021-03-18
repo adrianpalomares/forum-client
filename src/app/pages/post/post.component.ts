@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Comment } from 'src/app/comments/comment.model';
 import { CommentService } from 'src/app/comments/comments.service';
-import { Post } from 'src/app/posts/post.model';
+import { Post } from 'src/app/core/types';
 import { PostService } from 'src/app/posts/posts.service';
 
 @Component({
