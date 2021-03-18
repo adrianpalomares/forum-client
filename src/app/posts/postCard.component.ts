@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommentService } from '../comments/comments.service';
 import { Post } from './post.model';
 import { Comment } from '../comments/comment.model';
+import { Like } from '../core/types';
+import { PostService } from './posts.service';
 
 @Component({
     selector: 'app-postcard',
@@ -10,10 +12,23 @@ import { Comment } from '../comments/comment.model';
 export class PostCardComponent implements OnInit {
     @Input() post: Post;
     comments: Comment[];
-    constructor(private commentService: CommentService) {}
+    likes: Like[];
+
+    constructor(
+        private commentService: CommentService,
+        private postService: PostService
+    ) {}
+
     ngOnInit(): void {
         this.commentService
             .getCommentsByPost(this.post)
             .subscribe((res) => (this.comments = res));
+
+        // Grabbing list of likes from post
+        this.postService
+            .getLikesFromPostById(this.post.id)
+            .subscribe((response) => {
+                this.likes = response;
+            });
     }
 }

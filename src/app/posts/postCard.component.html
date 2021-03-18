@@ -38,4 +38,9 @@
       </p>
     </ng-template>
   </mat-card-content>
+  <!-- Like and comment counts -->
+  <mat-card-subtitle *ngIf="likes"
+    >{{ likes.length || 0 }} Likes -
+    <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
+  >
 </mat-card>
