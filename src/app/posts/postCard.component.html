@@ -39,7 +39,7 @@
     </ng-template>
   </mat-card-content>
   <!-- Like and comment counts -->
-  <mat-card-subtitle *ngIf="likes"
+  <mat-card-subtitle *ngIf="likes && comments"
     >{{ likes.length || 0 }} Likes -
     <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
   >

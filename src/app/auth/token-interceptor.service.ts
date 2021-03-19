@@ -39,7 +39,7 @@ export class TokenInterceptorService implements HttpInterceptor {
                   },
               };
         const request = req.clone(update);
-        console.log(request);
+        // console.log(request);
         return next.handle(request);
     }
 }
