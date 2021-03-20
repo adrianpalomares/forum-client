@@ -9,6 +9,7 @@ import {
     PostComponent,
     RegisterComponent,
 } from './pages';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'logoutroute', component: LogoutComponent },
     { path: 'post/:id', component: PostComponent },
     { path: 'create-post', component: CreatePostComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: '404', component: NotFoundPageComponent },
 ];
 
