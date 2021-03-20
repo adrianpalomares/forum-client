@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
         MatButtonModule,
         BrowserAnimationsModule,
         MatProgressSpinnerModule,
-        RouterModule
+        RouterModule,
+        MatTabsModule,
     ],
     providers: [AuthService, CommentService],
 })
