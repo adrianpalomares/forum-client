@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     declarations: [
@@ -41,6 +42,7 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatProgressSpinnerModule,
         RouterModule,
         MatTabsModule,
+        MatCardModule,
     ],
     providers: [AuthService, CommentService],
 })
