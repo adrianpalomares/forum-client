@@ -16,6 +16,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
         PostComponent,
         CreatePostComponent,
         NotFoundPageComponent,
+        ProfileComponent,
     ],
     imports: [
         CommonModule,
