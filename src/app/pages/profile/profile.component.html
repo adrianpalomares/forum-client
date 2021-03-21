@@ -1,0 +1,20 @@
+<mat-tab-group color="accent">
+  <mat-tab label="Posts">
+    <div *ngIf="posts">
+      <mat-card *ngFor="let post of posts">
+        <h3>{{ post.title }}</h3>
+        <button mat-raised-button color="primary" disabled>Edit</button>
+        <a
+          mat-raised-button
+          color="accent"
+          style="margin-left: 5px"
+          routerLink="/post/{{ post.id }}"
+        >
+          View
+        </a>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Comments">Comments page</mat-tab>
+  <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
+</mat-tab-group>

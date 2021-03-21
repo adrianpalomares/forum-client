@@ -6,20 +6,20 @@ import { Like, Post } from '../core/types';
 @Injectable()
 export class PostService {
     // Url
-    apiUrl: string = `${environment.baseUrl}/api/posts`;
+    apiUrl: string = `${environment.baseUrl}`;
 
     constructor(private httpClient: HttpClient) {}
 
     public getPosts(): Observable<Post[]> {
-        return this.httpClient.get<Post[]>(`${this.apiUrl}/`);
+        return this.httpClient.get<Post[]>(`${this.apiUrl}/api/posts/`);
     }
 
     public getPostById(id: string): Observable<Post> {
-        return this.httpClient.get<Post>(`${this.apiUrl}/${id}`);
+        return this.httpClient.get<Post>(`${this.apiUrl}/api/posts/${id}`);
     }
 
     public createPost(post: Post): Observable<Post> {
-        return this.httpClient.post<Post>(`${this.apiUrl}/`, post);
+        return this.httpClient.post<Post>(`${this.apiUrl}/api/posts/`, post);
     }
 
     /**
@@ -28,6 +28,19 @@ export class PostService {
      * @returns An observable with an array of Like objects
      */
     public getLikesFromPostById(id: number): Observable<Like[]> {
-        return this.httpClient.get<Like[]>(`${this.apiUrl}/${id}/likes/`);
+        return this.httpClient.get<Like[]>(
+            `${this.apiUrl}/api/posts/${id}/likes/`
+        );
+    }
+
+    /**
+     *
+     * @param userId The user's id.
+     * @returns An observable containing a list of posts belonging to the user.
+     */
+    public getPostsByUserId(userId: string): Observable<Post[]> {
+        return this.httpClient.get<Post[]>(
+            `${this.apiUrl}/api/users/${userId}/posts/`
+        );
     }
 }

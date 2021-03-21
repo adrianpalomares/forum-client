@@ -16,6 +16,9 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     declarations: [
@@ -26,6 +29,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
         PostComponent,
         CreatePostComponent,
         NotFoundPageComponent,
+        ProfileComponent,
     ],
     imports: [
         CommonModule,
@@ -36,7 +40,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
         MatButtonModule,
         BrowserAnimationsModule,
         MatProgressSpinnerModule,
-        RouterModule
+        RouterModule,
+        MatTabsModule,
+        MatCardModule,
     ],
     providers: [AuthService, CommentService],
 })

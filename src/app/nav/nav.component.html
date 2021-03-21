@@ -10,7 +10,7 @@
     <mat-nav-list>
       <ng-template [ngIf]="isUserLoggedIn | async">
         <a mat-list-item routerLink="create-post">Create Post</a>
-        <a mat-list-item routerLink="404">Profile</a>
+        <a mat-list-item routerLink="profile">Profile</a>
         <a mat-list-item routerLink="logoutroute">Log out</a>
       </ng-template>
       <ng-template [ngIf]="!(isUserLoggedIn | async)">
@@ -37,7 +37,7 @@
         <!-- When user is logged in -->
         <ng-template [ngIf]="isUserLoggedIn | async">
           <a mat-raised-button routerLink="create-post">Create Post</a>
-          <a mat-raised-button routerLink="404">Profile</a>
+          <a mat-raised-button routerLink="profile">Profile</a>
           <a mat-raised-button color="warn" routerLink="logoutroute">Log out</a>
         </ng-template>
         <!-- When user is logged out -->
