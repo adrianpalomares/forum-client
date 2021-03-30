@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppModule } from 'src/app/app.module';
-import { PostService } from 'src/app/posts/posts.service';
+import { PostService } from 'src/app/core/services/posts.service';
 import { CreatePostComponent } from './create-post.component';
 
 describe('CreatePostComponent', () => {

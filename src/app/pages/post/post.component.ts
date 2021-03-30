@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
-import { CommentService } from 'src/app/comments/comments.service';
-import { Post, Comment } from 'src/app/core/types';
-import { PostService } from 'src/app/posts/posts.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { CommentService } from 'src/app/core/services/comments.service';
+import { PostService } from 'src/app/core/services/posts.service';
+import { Comment, Post } from 'src/app/core/types';
 
 @Component({
     selector: 'app-post',

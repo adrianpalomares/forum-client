@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { AppModule } from '../app.module';
+import { AppModule } from '../../app.module';
 
 import { TokenInterceptorService } from './token-interceptor.service';
 
