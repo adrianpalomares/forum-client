@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth/auth.service';
-import { PostService } from './posts/posts.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './core/services/auth.service';
+import { PostService } from './core/services/posts.service';
 
 @Component({
     selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
         // Scenario: when user starts app for first time after being logged in
         // if token invalid it erases but navbar does not update
         this.router.events.subscribe((event) => {
-            if (event.constructor.name == 'NavigationEnd') {
+            if (event.constructor.name === 'NavigationEnd') {
                 this.loggedIn = this.authService.isLoggedIn();
             }
         });

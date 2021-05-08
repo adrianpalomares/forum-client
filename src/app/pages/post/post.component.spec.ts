@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppModule } from 'src/app/app.module';
-import { AuthService } from 'src/app/auth/auth.service';
-import { PostService } from 'src/app/posts/posts.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { PostService } from 'src/app/core/services/posts.service';
 import { PostComponent } from './post.component';
 
 fdescribe('PostComponent', () => {

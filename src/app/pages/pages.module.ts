@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { CommentService } from '../core/services/comments.service';
+import { AuthService } from '../core/services/auth.service';
+import { PostsModule } from '../posts/posts.module';
+import { CreatePostComponent } from './create-post/create-post.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { PostsModule } from '../posts/posts.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth/auth.service';
-import { CommentService } from '../comments/comments.service';
 import { LogoutComponent } from './logout/logout.component';
-import { PostComponent } from './post/post.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreatePostComponent } from './create-post/create-post.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { PostComponent } from './post/post.component';
 import { ProfileComponent } from './profile/profile.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     declarations: [

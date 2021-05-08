@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommentService } from '../comments/comments.service';
+import { CommentService } from '../core/services/comments.service';
 import { Like, Post, Comment } from '../core/types';
-import { PostService } from './posts.service';
+import { PostService } from '../core/services/posts.service';
 
 @Component({
     selector: 'app-postcard',
