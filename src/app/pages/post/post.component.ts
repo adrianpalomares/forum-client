@@ -16,6 +16,7 @@ export class PostComponent implements OnInit {
     comments: Comment[];
     commentArea: string;
     isLoggedIn: BehaviorSubject<boolean>;
+    loading: boolean; // Will be set to true after post
 
     constructor(
         private route: ActivatedRoute,
@@ -51,6 +52,8 @@ export class PostComponent implements OnInit {
             alert('Empty comments not allowed.');
             return;
         }
+        // Start loading
+        this.loading = true;
 
         // Create comment
         const comment: Comment = {
@@ -64,6 +67,7 @@ export class PostComponent implements OnInit {
             (response) => {
                 this.comments.push(response);
                 this.commentArea = '';
+                this.loading = false;
             },
             (error) => {
                 throw new Error(error);
