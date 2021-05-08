@@ -9,3 +9,14 @@
     align-items: center;
     justify-items: center;
 }
+.post-header {
+    font-size: 30px;
+}
+
+.post-content {
+    font-size: 20px;
+}
+
+.post-container {
+    padding-bottom: 30px;
+}
