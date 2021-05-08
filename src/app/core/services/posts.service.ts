@@ -10,8 +10,8 @@ export class PostService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getPosts(): Observable<Post[]> {
-        return this.httpClient.get<Post[]>(`${this.apiUrl}/api/posts/`);
+    public getPosts(): Observable<any> {
+        return this.httpClient.get<any>(`${this.apiUrl}/api/posts/`);
     }
 
     public getPostById(id: string): Observable<Post> {
