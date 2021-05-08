@@ -1,10 +1,10 @@
 <div class="container mt-4">
-  <div class="border">
-    <h1 *ngIf="post" class="text-uppercase font-weight-bold text-center mb-4">
+  <div class="post-container">
+    <h1 *ngIf="post" class="text-uppercase font-weight-bold mb-4 post-header">
       {{ post.title }}
     </h1>
     <!-- Content will go here -->
-    <p *ngIf="post" class="text-center">
+    <p *ngIf="post" class="post-content">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa neque
       praesentium architecto obcaecati, quibusdam earum laudantium repellat.
       Saepe illo dolores tempore aperiam! Accusantium ipsam nihil ducimus earum
@@ -17,7 +17,7 @@
     <textarea
       [(ngModel)]="commentArea"
       (keydown)="onCommentKeydown($event)"
-      class="form-control mt-3"
+      class="form-control mt-3 mb-2"
       id="commentArea"
       placeholder="Enter comment (Must be logged in)"
       rows="2"
@@ -28,7 +28,12 @@
         mat-raised-button
         color="accent"
         (click)="postComment()"
+        [disabled]="loading"
       >
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm mr-1"
+        ></span>
         Post
       </button>
     </div>
