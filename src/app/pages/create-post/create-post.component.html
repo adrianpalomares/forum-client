@@ -2,7 +2,7 @@
   Create a Post
 </h2>
 <hr />
-<ng-container *ngIf="!isLoading">
+<ng-container>
   <div class="text-box" [formGroup]="form">
     <mat-form-field appearance="fill">
       <input
@@ -31,13 +31,18 @@
       mat-raised-button
       id="post-button"
       (click)="handlePostClick()"
+      [disabled]="isLoading"
     >
+      <span
+        *ngIf="isLoading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
       Post
     </button>
   </div>
 </ng-container>
 
-<!-- Spinner -->
+<!-- Spinner
 <ng-template [ngIf]="isLoading"
   ><mat-spinner style="text-align: center"></mat-spinner
-></ng-template>
+></ng-template> -->
