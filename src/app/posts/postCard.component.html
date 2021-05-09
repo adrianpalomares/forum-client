@@ -34,7 +34,7 @@
       <div>
         <mat-icon>thumb_up_alt</mat-icon>
       </div>
-      <div style="text-align: center">1</div>
+      <div style="text-align: center">{{ likes.length }}</div>
       <div>
         <mat-icon>thumb_down_alt</mat-icon>
       </div>
@@ -68,8 +68,7 @@
         </ng-template>
       </mat-card-content>
       <!-- Like and comment counts -->
-      <mat-card-subtitle *ngIf="likes && comments"
-        >{{ likes.length || 0 }} Likes -
+      <mat-card-subtitle *ngIf="likes && comments">
         <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
       >
     </div>
