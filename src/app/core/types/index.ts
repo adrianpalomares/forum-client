@@ -20,7 +20,7 @@ export interface Like {
 
 // For paged response of posts
 export interface PagedPostResponse {
-    content?: Post[] | null;
+    content?: Post[];
     pageable: Pageable;
     totalPages: number;
     totalElements: number;
