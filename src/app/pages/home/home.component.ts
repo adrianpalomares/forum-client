@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         // if (localStorage.getItem('token') != null) { // temp change because of tests
-        this.postService.getPosts().subscribe((res) => (this.posts = res.content));
+        this.postService
+            .getPosts()
+            .subscribe((response) => (this.posts = response.content));
         // }
     }
 }

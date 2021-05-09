@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Like, Post } from '../types';
+import { Like, PagedPostResponse, Post } from '../types';
 @Injectable()
 export class PostService {
     // Url
@@ -10,8 +10,8 @@ export class PostService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getPosts(): Observable<any> {
-        return this.httpClient.get<any>(`${this.apiUrl}/api/posts/`);
+    public getPosts(): Observable<PagedPostResponse> {
+        return this.httpClient.get<PagedPostResponse>(`${this.apiUrl}/api/posts/`);
     }
 
     public getPostById(id: string): Observable<Post> {
