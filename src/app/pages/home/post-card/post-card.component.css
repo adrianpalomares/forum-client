@@ -1,0 +1,30 @@
+.mat-card {
+    margin-bottom: 10px;
+}
+
+.main-flex-container {
+    display: flex;
+}
+
+.like-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 10px;
+    /* border-right: 1px solid; */
+    padding: 5px;
+    padding-right: 20px;
+}
+
+.like-counter {
+    text-align: center;
+}
+
+.post-card-main-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card-text {
+    font-size: 1.2rem;
+}
