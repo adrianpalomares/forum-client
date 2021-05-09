@@ -10,8 +10,10 @@ export class PostService {
 
     constructor(private httpClient: HttpClient) {}
 
-    public getPosts(): Observable<PagedPostResponse> {
-        return this.httpClient.get<PagedPostResponse>(`${this.apiUrl}/api/posts/`);
+    public getPosts(pageIndex: number = 0): Observable<PagedPostResponse> {
+        return this.httpClient.get<PagedPostResponse>(
+            `${this.apiUrl}/api/posts/?page=${pageIndex}`
+        );
     }
 
     public getPostById(id: string): Observable<Post> {
