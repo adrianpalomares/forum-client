@@ -4,12 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { CommentService } from '../core/services/comments.service';
 import { AuthService } from '../core/services/auth.service';
+import { CommentService } from '../core/services/comments.service';
 import { PostsModule } from '../posts/posts.module';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { HomeComponent } from './home/home.component';
@@ -43,6 +44,7 @@ import { RegisterComponent } from './register/register.component';
         RouterModule,
         MatTabsModule,
         MatCardModule,
+        MatPaginatorModule,
     ],
     providers: [AuthService, CommentService],
 })

@@ -17,3 +17,44 @@ export interface Like {
     userId: number;
     value: boolean;
 }
+
+// For paged response of posts
+export interface PagedPostResponse {
+    content?: Post[] | null;
+    pageable: Pageable;
+    totalPages: number;
+    totalElements: number;
+    last: boolean;
+    first: boolean;
+    sort: Sort;
+    numberOfElements: number;
+    size: number;
+    number: number;
+    empty: boolean;
+}
+// export interface ContentEntity {
+//     id: number;
+//     title: string;
+//     text: string;
+//     user: User;
+// }
+// export interface User {
+//     id: number;
+//     username: string;
+//     password: string;
+//     email: string;
+//     created: string;
+// }
+export interface Pageable {
+    sort: Sort;
+    pageNumber: number;
+    pageSize: number;
+    offset: number;
+    unpaged: boolean;
+    paged: boolean;
+}
+export interface Sort {
+    sorted: boolean;
+    unsorted: boolean;
+    empty: boolean;
+}
