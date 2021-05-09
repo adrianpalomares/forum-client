@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { PostCardComponent } from './postCard.component';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
     declarations: [PostCardComponent],
-    imports: [CommonModule, MatCardModule, RouterModule],
+    imports: [CommonModule, MatCardModule, RouterModule, MatIconModule],
     exports: [PostCardComponent],
 })
 export class PostsModule {}

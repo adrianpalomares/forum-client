@@ -15,32 +15,63 @@
 </div> -->
 
 <mat-card style="margin-bottom: 10px">
-  <mat-card-header>
-    <img mat-card-avatar src="https://via.placeholder.com/150" />
-    <mat-card-title
-      ><a routerLink="/post/{{ post.id }}">{{ post.title }}</a></mat-card-title
+  <div style="display: flex">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-right: 10px;
+        /* border-right: 1px solid; */
+        padding: 5px;
+        padding-right: 20px;
+      "
     >
-    <mat-card-subtitle *ngIf="post.user">{{
-      post.user.username
-    }}</mat-card-subtitle>
-    <mat-card-subtitle *ngIf="!post.user">User not included</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p *ngIf="post.text !== null; else loremText">
-      {{ post.text }}
-    </p>
-    <ng-template #loremText>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore debitis
-        deleniti nemo corporis ad, nam, atque odio sapiente hic, possimus
-        nesciunt magnam. Aliquid deserunt, sequi at voluptatum sapiente soluta
-        illo!
-      </p>
-    </ng-template>
-  </mat-card-content>
-  <!-- Like and comment counts -->
-  <mat-card-subtitle *ngIf="likes && comments"
-    >{{ likes.length || 0 }} Likes -
-    <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
-  >
+      <div>
+        <mat-icon>thumb_up_alt</mat-icon>
+      </div>
+      <div style="text-align: center">1</div>
+      <div>
+        <mat-icon>thumb_down_alt</mat-icon>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <mat-card-header>
+        <img mat-card-avatar src="https://via.placeholder.com/150" />
+        <mat-card-title
+          ><a routerLink="/post/{{ post.id }}">{{
+            post.title
+          }}</a></mat-card-title
+        >
+        <mat-card-subtitle *ngIf="post.user">{{
+          post.user.username
+        }}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!post.user"
+          >User not included</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="post.text !== null; else loremText">
+          {{ post.text }}
+        </p>
+        <ng-template #loremText>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+            debitis deleniti nemo corporis ad, nam, atque odio sapiente hic,
+            possimus nesciunt magnam. Aliquid deserunt, sequi at voluptatum
+            sapiente soluta illo!
+          </p>
+        </ng-template>
+      </mat-card-content>
+      <!-- Like and comment counts -->
+      <mat-card-subtitle *ngIf="likes && comments"
+        >{{ likes.length || 0 }} Likes -
+        <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
+      >
+    </div>
+  </div>
 </mat-card>
