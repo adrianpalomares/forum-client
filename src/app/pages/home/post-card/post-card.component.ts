@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommentService } from '../core/services/comments.service';
-import { Like, Post, Comment } from '../core/types';
-import { PostService } from '../core/services/posts.service';
+import { Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommentService } from 'src/app/core/services/comments.service';
+import { PostService } from 'src/app/core/services/posts.service';
+import { Like, Post, Comment } from 'src/app/core/types';
 
 @Component({
-    selector: 'app-postcard',
-    templateUrl: './postCard.component.html',
+    selector: 'app-post-card',
+    templateUrl: './post-card.component.html',
+    styleUrls: ['./post-card.component.css'],
 })
 export class PostCardComponent implements OnInit {
     @Input() post: Post;
