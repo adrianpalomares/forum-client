@@ -1,0 +1,50 @@
+<mat-card>
+  <div class="main-flex-container">
+    <div class="like-section-container">
+      <div>
+        <mat-icon class="thumb-icon" (click)="handleLikeAction(true)"
+          >thumb_up_alt</mat-icon
+        >
+      </div>
+      <div class="like-counter">{{ likeCount }}</div>
+      <div>
+        <mat-icon class="thumb-icon" (click)="handleLikeAction(false)"
+          >thumb_down_alt</mat-icon
+        >
+      </div>
+    </div>
+    <div class="post-card-main-section">
+      <mat-card-header>
+        <img mat-card-avatar src="https://via.placeholder.com/150" />
+        <mat-card-title
+          ><a routerLink="/post/{{ post.id }}">{{
+            post.title
+          }}</a></mat-card-title
+        >
+        <mat-card-subtitle *ngIf="post.user">{{
+          post.user.username
+        }}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!post.user"
+          >User not included</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <p class="post-card-text" *ngIf="post.text !== null; else loremText">
+          {{ post.text }}
+        </p>
+        <ng-template #loremText>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+            debitis deleniti nemo corporis ad, nam, atque odio sapiente hic,
+            possimus nesciunt magnam. Aliquid deserunt, sequi at voluptatum
+            sapiente soluta illo!
+          </p>
+        </ng-template>
+      </mat-card-content>
+      <!-- Like and comment counts -->
+      <mat-card-subtitle *ngIf="likes && comments">
+        <span>{{ comments.length || 0 }} Comments</span></mat-card-subtitle
+      >
+    </div>
+  </div>
+</mat-card>

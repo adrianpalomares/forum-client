@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { TokenInterceptorService } from './core/services/token-interceptor.service';
 import { NavComponent } from './nav/nav.component';
 import { PagesModule } from './pages/pages.module';
-import { PostsModule } from './posts/posts.module';
 
 @NgModule({
     declarations: [AppComponent, NavComponent],
@@ -25,7 +24,6 @@ import { PostsModule } from './posts/posts.module';
         AppRoutingModule,
         HttpClientModule,
         PagesModule,
-        PostsModule,
         BrowserAnimationsModule,
         MatInputModule,
         BrowserAnimationsModule,

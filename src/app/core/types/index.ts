@@ -13,7 +13,7 @@ export interface Comment {
 }
 
 export interface Like {
-    id: number;
+    id?: number;
     userId: number;
     value: boolean;
 }
