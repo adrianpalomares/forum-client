@@ -28,3 +28,11 @@
 .post-card-text {
     font-size: 1.2rem;
 }
+
+.thumb-icon {
+    cursor: pointer;
+}
+
+.thumb-icon:hover {
+    font-size: xx-large;
+}

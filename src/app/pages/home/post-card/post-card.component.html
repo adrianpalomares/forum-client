@@ -2,11 +2,11 @@
   <div class="main-flex-container">
     <div class="like-section-container">
       <div>
-        <mat-icon>thumb_up_alt</mat-icon>
+        <mat-icon class="thumb-icon" (click)="handleLikeClick()">thumb_up_alt</mat-icon>
       </div>
       <div class="like-counter">{{ likes.length }}</div>
       <div>
-        <mat-icon>thumb_down_alt</mat-icon>
+        <mat-icon class="thumb-icon">thumb_down_alt</mat-icon>
       </div>
     </div>
     <div class="post-card-main-section">

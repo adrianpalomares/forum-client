@@ -36,6 +36,37 @@ export class PostService {
     }
 
     /**
+     * Method to add a like to a post.
+     * @param postId The Id of the post. This is used to make the request to the appropriate endpoint.
+     * @param userId This is the user's id.
+     * @param value Whether it is a like(true) or dislike(false)
+     * @param likeId The like's id. This is useful if we are updating the like. Although, the api will
+     * check if the user has already submitted a like.
+     * @returns An observable with the result of the request. Includes the like object created server side.
+     */
+    public addLikeToPost(
+        postId: number,
+        userId: number,
+        value: boolean,
+        likeId: number = null
+    ): Observable<any> {
+        // Create the like object
+        function createLikeObject(): Like {
+            if (likeId == null) {
+                return { userId, value };
+            } else {
+                return { userId, value, id: likeId };
+            }
+        }
+
+        const like = createLikeObject();
+        return this.httpClient.post(
+            `${this.apiUrl}/api/posts/${postId}/likes/`,
+            like
+        );
+    }
+
+    /**
      *
      * @param userId The user's id.
      * @returns An observable containing a list of posts belonging to the user.
