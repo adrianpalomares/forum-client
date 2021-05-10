@@ -35,15 +35,23 @@ export class PostCardComponent implements OnInit {
     }
 
     handleLikeClick(): void {
-        console.log('like click');
         const userId = parseInt(this.authService.getUserId());
-        // Register the like
-        this.postService
-            .addLikeToPost(this.post.id, userId, true)
-            .subscribe((response) => {
-                // Update the count
-                this.likes.push(response);
-            });
+        // Filter for a like with userId
+        const likesFilteredByUserId = this.likes.filter(
+            (like) => like.userId === parseInt(this.authService.getUserId())
+        );
+        // Checking if user has already submitted a like or if the like is false then we switch to true
+        if (
+            likesFilteredByUserId.length === 0 ||
+            likesFilteredByUserId[0].value === false
+        ) {
+            // Register the like
+            this.postService
+                .addLikeToPost(this.post.id, userId, true)
+                .subscribe((response) => {
+                    this.likes.push(response);
+                });
+        }
     }
 
     handleDislikeClick(): void {
